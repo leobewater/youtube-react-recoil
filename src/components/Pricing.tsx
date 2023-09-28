@@ -61,8 +61,14 @@ const defaultTheme = createTheme();
 export default function Pricing() {
   //   const [cart, setCart] = useState(0);
   const [cart, setCart] = useRecoilState(cartState);
-  const buttonHandler = () => {
-    setCart(cart + 1);
+
+  const buttonHandler = (title: string, price: number) => {
+    const newItem = {
+      id: Math.random(),
+      description: title,
+      price: price,
+    };
+    setCart([...cart, newItem]);
   };
 
   return (
@@ -89,7 +95,7 @@ export default function Pricing() {
           Pricing
         </Typography>
         <Typography variant="h2" align="center" color="primary" component="p">
-          Cart: {cart}
+          Cart: {cart.length}
         </Typography>
       </Container>
       {/* End hero unit */}
@@ -155,7 +161,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardActions>
                   <Button
-                    onClick={buttonHandler}
+                    onClick={() => buttonHandler(tier.title, tier.price)}
                     fullWidth
                     variant={tier.buttonVariant as 'outlined' | 'contained'}
                   >
