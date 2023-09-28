@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CssBaseline from '@mui/material/CssBaseline';
+import { RecoilRoot } from 'recoil';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <CssBaseline />
-    <App />
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   </React.StrictMode>
 );
 
