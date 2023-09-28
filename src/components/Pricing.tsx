@@ -18,7 +18,7 @@ import { useRecoilState } from 'recoil';
 const tiers = [
   {
     title: 'Free',
-    price: '0',
+    price: '5',
     description: [
       '10 users included',
       '2 GB of storage',

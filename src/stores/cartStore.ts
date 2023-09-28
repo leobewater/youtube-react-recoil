@@ -8,9 +8,11 @@ export const cartState = atom<Item[]>({
   default: [],
 });
 
+// anytime the cartState changes, it renders this and all the components using this
 export const cartTotal = selector({
   key: 'cartTotal',
-  get: () => {
-    return 15;
+  get: ({ get }) => {
+    const cart = get(cartState);
+    return cart.reduce((total, item) => total + item.price, 0);
   },
 });
