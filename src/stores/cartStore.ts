@@ -13,6 +13,6 @@ export const cartTotal = selector({
   key: 'cartTotal',
   get: ({ get }) => {
     const cart = get(cartState);
-    return cart.reduce((total, item) => total + item.price, 0);
+    return cart.reduce((total: number, item: Item) => total + item.price, 0);
   },
 });
