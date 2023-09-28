@@ -62,11 +62,11 @@ export default function Pricing() {
   //   const [cart, setCart] = useState(0);
   const [cart, setCart] = useRecoilState(cartState);
 
-  const buttonHandler = (title: string, price: number) => {
+  const buttonHandler = (title: string, price: string) => {
     const newItem = {
       id: Math.random(),
       description: title,
-      price: price,
+      price: parseFloat(price),
     };
     setCart([...cart, newItem]);
   };
