@@ -13,24 +13,25 @@ import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import { Header } from './Header';
+import { useState } from 'react';
 
-function Copyright(props: any) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// function Copyright(props: any) {
+//   return (
+//     <Typography
+//       variant="body2"
+//       color="text.secondary"
+//       align="center"
+//       {...props}
+//     >
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://mui.com/">
+//         Your Website
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 const tiers = [
   {
@@ -55,7 +56,7 @@ const tiers = [
       'Help center access',
       'Priority email support',
     ],
-    buttonText: 'Get started',
+    buttonText: 'Add to Cart',
     buttonVariant: 'contained',
   },
   {
@@ -71,6 +72,7 @@ const tiers = [
     buttonVariant: 'outlined',
   },
 ];
+/*
 const footers = [
   {
     title: 'Company',
@@ -100,18 +102,24 @@ const footers = [
     description: ['Privacy policy', 'Terms of use'],
   },
 ];
+*/
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Pricing() {
+  const [cart, setCart] = useState(0);
+
+  const buttonHandler = () => {
+    setCart(cart + 1);
+  };
+    
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles
         styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }}
       />
       <CssBaseline />
-      {/* Header goes here */}
       <Header />
       {/* Hero unit */}
       <Container
@@ -129,15 +137,8 @@ export default function Pricing() {
         >
           Pricing
         </Typography>
-        <Typography
-          variant="h5"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Quickly build an effective pricing table for your potential customers
-          with this layout. It&apos;s built with default MUI components with
-          little customization.
+        <Typography variant="h2" align="center" color="primary" component="p">
+          Cart: {cart}
         </Typography>
       </Container>
       {/* End hero unit */}
@@ -203,6 +204,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardActions>
                   <Button
+                    onClick={buttonHandler}
                     fullWidth
                     variant={tier.buttonVariant as 'outlined' | 'contained'}
                   >
@@ -215,7 +217,7 @@ export default function Pricing() {
         </Grid>
       </Container>
       {/* Footer */}
-      <Container
+      {/* <Container
         maxWidth="md"
         component="footer"
         sx={{
@@ -224,7 +226,7 @@ export default function Pricing() {
           py: [3, 6],
         }}
       >
-        <Grid container spacing={4} justifyContent="space-evenly">
+      <Grid container spacing={4} justifyContent="space-evenly">
           {footers.map((footer) => (
             <Grid item xs={6} sm={3} key={footer.title}>
               <Typography variant="h6" color="text.primary" gutterBottom>
@@ -241,9 +243,10 @@ export default function Pricing() {
               </ul>
             </Grid>
           ))}
-        </Grid>
-        <Copyright sx={{ mt: 5 }} />
+        </Grid> 
+         <Copyright sx={{ mt: 5 }} /> 
       </Container>
+      */}
       {/* End footer */}
     </ThemeProvider>
   );
