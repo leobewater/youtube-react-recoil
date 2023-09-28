@@ -25,7 +25,7 @@ const tiers = [
       'Help center access',
       'Email support',
     ],
-    buttonText: 'Sign up for free',
+    buttonText: 'Add to Cart',
     buttonVariant: 'outlined',
   },
   {
@@ -50,7 +50,7 @@ const tiers = [
       'Help center access',
       'Phone & email support',
     ],
-    buttonText: 'Contact us',
+    buttonText: 'Add to Cart',
     buttonVariant: 'outlined',
   },
 ];

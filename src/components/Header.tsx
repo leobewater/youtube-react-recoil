@@ -5,10 +5,10 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 import { cartState } from '../stores/cartStore';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 
 export const Header = () => {
-  const [cart] = useRecoilState(cartState);
+  const cart = useRecoilValue(cartState); // just get the value
 
   return (
     <AppBar
@@ -31,8 +31,7 @@ export const Header = () => {
             Support
           </Link>
         </nav>
-        <ShoppingCartTwoToneIcon />
-        ({cart})
+        <ShoppingCartTwoToneIcon />({cart})
         <Typography variant="subtitle2" color="primary" sx={{ mx: 2 }}>
           Total: $0
         </Typography>
